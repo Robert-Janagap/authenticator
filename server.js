@@ -2,6 +2,8 @@ const express = require("express");
 const morgan = require("morgan");
 const fs = require("fs");
 const path = require("path");
+const swaggerUI = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 
 const app = express();
 
@@ -19,6 +21,9 @@ app.use(morgan("dev"));
 
 // log all request to access.log
 app.use(morgan("combined", { stream: accessLogStream }));
+
+// API swagger document
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 const PORT = process.env.PORT || 3000;
 
