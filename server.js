@@ -37,3 +37,4 @@ const listen = app.listen(PORT, () => {
 });
 
 module.exports = app;
+module.exports = listen.address().port;

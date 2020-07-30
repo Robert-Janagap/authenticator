@@ -7,17 +7,26 @@
   "author": "janagaprobert@gmail.com",
   "license": "MIT",
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "config": "^3.3.1",
     "cross-env": "^7.0.2",
     "express": "^4.17.1",
+    "mocha": "^8.1.0",
+    "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
+    "supertest": "^4.0.2",
     "swagger-ui-express": "^4.1.4"
   },
   "scripts": {
     "prod": "cross-env NODE_ENV=production node server.js",
-    "dev": "cross-env NODE_ENV=development nodemon server.js"
+    "dev": "cross-env NODE_ENV=development nodemon server.js",
+    "test": "cross-env NODE_ENV=test mocha ./routes/v1/test"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
+  },
+  "_moduleAliases": {
+    "@root": "."
   }
 }
