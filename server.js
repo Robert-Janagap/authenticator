@@ -4,6 +4,7 @@ const fs = require("fs");
 const path = require("path");
 const swaggerUI = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
+const config = require("config");
 
 const app = express();
 
@@ -25,10 +26,14 @@ app.use(morgan("combined", { stream: accessLogStream }));
 // API swagger document
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || config.get("port");
 
 const listen = app.listen(PORT, () => {
-  console.log(`Server started on port: ${PORT}`);
+  console.log(
+    `${config.get("environment")} server ${config.get(
+      "version"
+    )} started on port ${PORT}`
+  );
 });
 
 module.exports = app;
