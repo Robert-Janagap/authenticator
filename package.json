@@ -3,5 +3,12 @@
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "swagger-ui-express": "^4.1.4"
-  }
+  },
+  "name": "authenticator",
+  "version": "1.0.0",
+  "description": "ExpressJS + MongoDB + Unit test",
+  "main": "server.js",
+  "repository": "git@github.com:Robert-Janagap/authenticator.git",
+  "author": "janagaprobert@gmail.com",
+  "license": "MIT"
 }
